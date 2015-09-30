@@ -53,8 +53,8 @@ module Snorby
           end
 
           if @new_lines
-            string.gsub!(/[\x0a]/, ".")
-            string.gsub!(/[\040\177-\377]/, '.')
+            string.gsub!(/[\x0a]/, "") # remove line feed char
+            string.gsub!(/[\177-\377]/, '.') #restored (space) char 
           else
             string.gsub!(/[\000-\040\177-\377]/, ".")
           end
